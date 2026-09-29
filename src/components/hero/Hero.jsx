@@ -54,13 +54,13 @@ export function Hero() {
                 <ArrowRight className="w-4 h-4 ml-2" />
               </MagneticButton>
 
-              <MagneticButton
+              {/* <MagneticButton
                 onClick={() => window.open(siteConfig.cv, '_blank')}
                 className="px-6 py-3 text-sm font-semibold rounded-full border border-gray-300 dark:border-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
               >
                 Download CV
                 <Download className="w-4 h-4 ml-2" />
-              </MagneticButton>
+              </MagneticButton> */}
             </motion.div>
 
             <motion.div
