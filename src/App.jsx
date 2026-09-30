@@ -11,6 +11,7 @@ import { Education } from './pages/Education';
 import { CurrentFocus } from './pages/CurrentFocus';
 import { Contact } from './pages/Contact';
 import { ScrollProgress } from './components/ui/ScrollProgress';
+import { GlassBackground } from './components/ui/GlassBackground';
 import { useTheme } from './hooks/useTheme';
 import './index.css';
 
@@ -24,14 +25,15 @@ function App() {
   }, [theme]);
 
   return (
-    <div className="min-h-screen bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100 transition-colors duration-300">
+    <div className="relative min-h-screen text-slate-900 dark:text-slate-100 transition-colors duration-300">
+      <GlassBackground />
       <ScrollProgress />
       <Navbar />
 
-      <main>
+      <main className="relative z-10">
         <Hero />
         <About />
-        <div className="py-20 md:py-28 px-4 sm:px-6 md:px-8 bg-gray-50/70 dark:bg-gray-900/60 border-y border-gray-200/60 dark:border-gray-800/60">
+        <div className="py-20 md:py-28 px-4 sm:px-6 md:px-8">
           <div className="max-w-5xl mx-auto">
             <DevAssistant id="dev-assistant" />
           </div>

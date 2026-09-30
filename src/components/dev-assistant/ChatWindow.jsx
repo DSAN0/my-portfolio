@@ -8,39 +8,56 @@ export function ChatWindow({
   messages = [],
   isLoading = false,
   onSelectQuestion,
-  onSelectCategory
+  onSelectCategory,
 }) {
-  const bottomRef = useRef(null);
+  const containerRef = useRef(null);
 
   useEffect(() => {
-    bottomRef.current?.scrollIntoView({ behavior: 'smooth' });
+    const el = containerRef.current;
+    if (!el) return;
+    // Scroll only the chat panel — avoid scrollIntoView (it moves the page)
+    el.scrollTo({ top: el.scrollHeight, behavior: 'smooth' });
   }, [messages, isLoading]);
 
   return (
-    <div className="flex-1 p-4 md:p-6 overflow-y-auto min-h-[380px] max-h-[580px] space-y-4 bg-gray-50/50 dark:bg-gray-900/40">
-      {messages.length === 0 ? (
-        <EmptyState
-          onSelectQuestion={onSelectQuestion}
-          onSelectCategory={onSelectCategory}
-        />
-      ) : (
-        <div className="space-y-4">
-          <AnimatePresence initial={false}>
-            {messages.map((message) => (
-              <ChatMessage
-                key={message.id}
-                message={message}
-                onSelectQuestion={onSelectQuestion}
-                onSelectCategory={onSelectCategory}
-              />
-            ))}
-          </AnimatePresence>
+    <div
+      ref={containerRef}
+      className="relative flex-1 p-4 md:p-6 overflow-y-auto min-h-[380px] max-h-[580px] space-y-4 bg-slate-950/25 hud-scroll"
+    >
+      <div
+        className="pointer-events-none absolute inset-0 opacity-[0.07]"
+        style={{
+          backgroundImage: `
+            linear-gradient(rgba(56,189,248,0.5) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(56,189,248,0.35) 1px, transparent 1px)
+          `,
+          backgroundSize: '40px 40px',
+        }}
+      />
 
-          {isLoading && <TypingIndicator />}
+      <div className="relative z-10">
+        {messages.length === 0 ? (
+          <EmptyState
+            onSelectQuestion={onSelectQuestion}
+            onSelectCategory={onSelectCategory}
+          />
+        ) : (
+          <div className="space-y-4">
+            <AnimatePresence initial={false}>
+              {messages.map((message) => (
+                <ChatMessage
+                  key={message.id}
+                  message={message}
+                  onSelectQuestion={onSelectQuestion}
+                  onSelectCategory={onSelectCategory}
+                />
+              ))}
+            </AnimatePresence>
 
-          <div ref={bottomRef} className="h-2" />
-        </div>
-      )}
+            {isLoading && <TypingIndicator />}
+          </div>
+        )}
+      </div>
     </div>
   );
 }

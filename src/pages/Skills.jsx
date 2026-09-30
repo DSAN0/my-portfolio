@@ -8,16 +8,16 @@ export function Skills() {
   const categories = Object.keys(skills);
 
   return (
-    <section id="skills" className="py-28 px-6 md:px-8 bg-gray-50 dark:bg-gray-800">
+    <section id="skills" className="py-28 px-6 md:px-8">
       <div className="max-w-6xl mx-auto">
         <Reveal>
-          <p className="text-xs font-mono tracking-[0.3em] uppercase mb-4 text-blue-600 dark:text-blue-400">
+          <p className="text-xs font-mono tracking-[0.3em] uppercase mb-4 text-sky-600 dark:text-sky-400">
             Technology
           </p>
         </Reveal>
 
         <Reveal delay={0.1}>
-          <h2 className="font-display text-3xl md:text-4xl font-bold mb-14 text-gray-900 dark:text-gray-100">
+          <h2 className="font-display text-3xl md:text-4xl font-bold mb-14 text-slate-900 dark:text-slate-100">
             Tools I build with.
           </h2>
         </Reveal>
@@ -25,8 +25,8 @@ export function Skills() {
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {categories.map((category, categoryIndex) => (
             <Reveal key={category} delay={categoryIndex * 0.1}>
-              <div className="p-6 rounded-2xl bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700">
-                <h3 className="font-mono text-sm tracking-widest uppercase mb-4 text-blue-600 dark:text-blue-400">
+              <div className="p-6 rounded-2xl glass-panel h-full">
+                <h3 className="font-mono text-sm tracking-widest uppercase mb-4 text-sky-600 dark:text-sky-400">
                   {category}
                 </h3>
                 <div className="space-y-3">
@@ -36,15 +36,15 @@ export function Skills() {
                       onClick={() => setSelectedSkill(skill)}
                       onMouseEnter={() => setSelectedSkill(skill)}
                       onMouseLeave={() => setSelectedSkill(null)}
-                      className={`w-full text-left p-3 rounded-lg transition-colors ${
+                      className={`w-full text-left p-3 rounded-xl transition-colors ${
                         selectedSkill?.name === skill.name
-                          ? 'bg-blue-50 dark:bg-blue-900/20 text-blue-600 dark:text-blue-400'
-                          : 'hover:bg-gray-50 dark:hover:bg-gray-800 text-gray-700 dark:text-gray-300'
+                          ? 'bg-sky-500/15 text-sky-700 dark:text-sky-300'
+                          : 'hover:bg-white/40 dark:hover:bg-white/5 text-slate-700 dark:text-slate-300'
                       }`}
                     >
                       <p className="font-medium">{skill.name}</p>
                       {selectedSkill?.name === skill.name && (
-                        <p className="text-sm mt-1 text-gray-600 dark:text-gray-400">
+                        <p className="text-sm mt-1 text-slate-600 dark:text-slate-400">
                           {skill.description}
                         </p>
                       )}
@@ -58,16 +58,16 @@ export function Skills() {
 
         {selectedSkill && (
           <Reveal delay={0.2}>
-            <div className="mt-8 p-6 rounded-2xl bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700">
-              <h3 className="font-semibold text-lg mb-2 text-gray-900 dark:text-gray-100">
+            <div className="mt-8 p-6 rounded-2xl glass-strong">
+              <h3 className="font-semibold text-lg mb-2 text-slate-900 dark:text-slate-100">
                 {selectedSkill.name}
               </h3>
-              <p className="text-gray-600 dark:text-gray-400 mb-4">{selectedSkill.description}</p>
+              <p className="text-slate-600 dark:text-slate-300 mb-4">{selectedSkill.description}</p>
               <div className="flex items-center gap-2">
-                <span className="text-sm font-mono text-blue-600 dark:text-blue-400">
+                <span className="text-sm font-mono text-sky-600 dark:text-sky-400">
                   Used for:
                 </span>
-                <span className="text-sm text-gray-700 dark:text-gray-300">
+                <span className="text-sm text-slate-700 dark:text-slate-300">
                   {selectedSkill.usage}
                 </span>
               </div>

@@ -1,4 +1,4 @@
-import { Terminal, AlertCircle, Info, Sparkles, AlertTriangle, Layers, GitBranch, ArrowRight } from 'lucide-react';
+import { Terminal, AlertCircle, Info, AlertTriangle, GitBranch, ArrowRight } from 'lucide-react';
 import { CodeBlock } from './CodeBlock';
 import { StepList } from './StepList';
 import { SuggestedQuestions } from './SuggestedQuestions';
@@ -15,17 +15,17 @@ export function AssistantMessage({ message, onSelectQuestion, onSelectCategory }
   const renderBadge = () => {
     switch (response.type) {
       case 'workflow':
-        return <span className="px-2 py-0.5 rounded text-[10px] font-semibold bg-blue-100 dark:bg-blue-900/40 text-blue-700 dark:text-blue-300 border border-blue-200 dark:border-blue-800">Workflow</span>;
+        return <span className="px-2 py-0.5 rounded-md text-[10px] font-mono font-semibold bg-sky-500/15 text-sky-700 dark:text-sky-300 border border-sky-400/30">Workflow</span>;
       case 'command':
-        return <span className="px-2 py-0.5 rounded text-[10px] font-semibold bg-emerald-100 dark:bg-emerald-900/40 text-emerald-700 dark:text-emerald-300 border border-emerald-200 dark:border-emerald-800">Command</span>;
+        return <span className="px-2 py-0.5 rounded-md text-[10px] font-mono font-semibold bg-emerald-500/15 text-emerald-700 dark:text-emerald-300 border border-emerald-400/30">Command</span>;
       case 'concept':
-        return <span className="px-2 py-0.5 rounded text-[10px] font-semibold bg-purple-100 dark:bg-purple-900/40 text-purple-700 dark:text-purple-300 border border-purple-200 dark:border-purple-800">Concept</span>;
+        return <span className="px-2 py-0.5 rounded-md text-[10px] font-mono font-semibold bg-teal-500/15 text-teal-700 dark:text-teal-300 border border-teal-400/30">Concept</span>;
       case 'troubleshooting':
-        return <span className="px-2 py-0.5 rounded text-[10px] font-semibold bg-amber-100 dark:bg-amber-900/40 text-amber-700 dark:text-amber-300 border border-amber-200 dark:border-amber-800">Troubleshooting</span>;
+        return <span className="px-2 py-0.5 rounded-md text-[10px] font-mono font-semibold bg-amber-500/15 text-amber-700 dark:text-amber-300 border border-amber-400/30">Troubleshoot</span>;
       case 'comparison':
-        return <span className="px-2 py-0.5 rounded text-[10px] font-semibold bg-indigo-100 dark:bg-indigo-900/40 text-indigo-700 dark:text-indigo-300 border border-indigo-200 dark:border-indigo-800">Comparison</span>;
+        return <span className="px-2 py-0.5 rounded-md text-[10px] font-mono font-semibold bg-cyan-500/15 text-cyan-700 dark:text-cyan-300 border border-cyan-400/30">Compare</span>;
       case 'easter_egg':
-        return <span className="px-2 py-0.5 rounded text-[10px] font-semibold bg-pink-100 dark:bg-pink-900/40 text-pink-700 dark:text-pink-300 border border-pink-200 dark:border-pink-800">System</span>;
+        return <span className="px-2 py-0.5 rounded-md text-[10px] font-mono font-semibold bg-slate-500/15 text-slate-600 dark:text-slate-300 border border-slate-400/30">System</span>;
       default:
         return null;
     }
@@ -34,7 +34,7 @@ export function AssistantMessage({ message, onSelectQuestion, onSelectCategory }
   return (
     <div className="flex items-start gap-3 py-2 px-1">
       {/* Dev Assistant Avatar */}
-      <div className="flex items-center justify-center w-8 h-8 rounded-xl bg-blue-600/10 dark:bg-blue-500/20 text-blue-600 dark:text-blue-400 border border-blue-500/30 shrink-0 mt-1">
+      <div className="flex items-center justify-center w-8 h-8 rounded-xl bg-sky-500/15 text-sky-500 dark:text-sky-400 border border-sky-400/30 shrink-0 mt-1">
         <Terminal className="w-4 h-4" />
       </div>
 
@@ -42,24 +42,24 @@ export function AssistantMessage({ message, onSelectQuestion, onSelectCategory }
       <div className="flex-1 max-w-[95%] sm:max-w-[88%]">
         {/* Header line */}
         <div className="flex items-center gap-2 mb-1.5">
-          <span className="text-xs font-bold text-gray-800 dark:text-gray-200">
+          <span className="text-xs font-bold text-slate-800 dark:text-slate-100">
             Dev Assistant
           </span>
           {response.category && (
-            <span className="text-[11px] font-medium text-gray-500 dark:text-gray-400">
+            <span className="text-[11px] font-mono font-medium text-sky-600 dark:text-sky-400">
               • {response.category}
             </span>
           )}
           {renderBadge()}
           {time && (
-            <span className="text-[10px] text-gray-400 dark:text-gray-500 font-mono ml-auto">
+            <span className="text-[10px] text-slate-400 font-mono ml-auto">
               {time}
             </span>
           )}
         </div>
 
         {/* Content Container */}
-        <div className="p-4 md:p-5 rounded-2xl rounded-tl-sm bg-white dark:bg-gray-800/90 border border-gray-200/90 dark:border-gray-700/80 shadow-sm text-gray-800 dark:text-gray-200">
+        <div className="p-4 md:p-5 rounded-2xl rounded-tl-sm bg-white/15 dark:bg-white/5 border border-white/25 dark:border-sky-400/20 text-slate-800 dark:text-slate-200">
           
           {/* Response Title */}
           {response.title && (

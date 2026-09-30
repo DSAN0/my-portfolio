@@ -3,12 +3,12 @@ import { Mail } from 'lucide-react';
 
 export function Footer() {
   return (
-    <footer className="bg-gray-900 text-gray-400 py-12 px-6 md:px-8">
-      <div className="max-w-7xl mx-auto">
+    <footer className="relative z-10 py-12 px-6 md:px-8">
+      <div className="max-w-7xl mx-auto glass-strong rounded-3xl p-8 md:p-10">
         <div className="flex flex-col md:flex-row items-center justify-between gap-6">
           <div className="text-center md:text-left">
-            <h3 className="text-xl font-bold text-white mb-2">{siteConfig.name}</h3>
-            <p className="text-sm">
+            <h3 className="text-xl font-display font-bold text-slate-900 dark:text-slate-100 mb-2">{siteConfig.name}</h3>
+            <p className="text-sm text-slate-600 dark:text-slate-400">
               Software Engineering Undergraduate
               <br />
               & Full-Stack Developer
@@ -20,7 +20,7 @@ export function Footer() {
               href={siteConfig.github}
               target="_blank"
               rel="noopener noreferrer"
-              className="hover:text-white transition-colors"
+              className="text-slate-600 dark:text-slate-400 hover:text-sky-600 dark:hover:text-sky-300 transition-colors"
               aria-label="GitHub"
             >
               <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
@@ -31,7 +31,7 @@ export function Footer() {
               href={siteConfig.linkedin}
               target="_blank"
               rel="noopener noreferrer"
-              className="hover:text-white transition-colors"
+              className="text-slate-600 dark:text-slate-400 hover:text-sky-600 dark:hover:text-sky-300 transition-colors"
               aria-label="LinkedIn"
             >
               <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
@@ -40,7 +40,7 @@ export function Footer() {
             </a>
             <a
               href={`mailto:${siteConfig.email}`}
-              className="hover:text-white transition-colors"
+              className="text-slate-600 dark:text-slate-400 hover:text-sky-600 dark:hover:text-sky-300 transition-colors"
               aria-label="Email"
             >
               <Mail className="w-5 h-5" />
@@ -48,7 +48,7 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="mt-8 pt-8 border-t border-gray-800 text-center text-sm">
+        <div className="mt-8 pt-8 border-t border-white/30 dark:border-white/10 text-center text-sm text-slate-600 dark:text-slate-400">
           <p>© {new Date().getFullYear()} {siteConfig.name}</p>
         </div>
       </div>

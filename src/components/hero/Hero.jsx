@@ -3,7 +3,7 @@ import { siteConfig } from '../../config/site';
 import { MagneticButton } from '../ui/MagneticButton';
 import { AnimatedText } from '../ui/AnimatedText';
 import { SystemVisualization } from './SystemVisualization';
-import { Download, ArrowRight } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 
 const fadeUp = {
   hidden: { opacity: 0, y: 30 },
@@ -12,20 +12,25 @@ const fadeUp = {
 
 export function Hero() {
   return (
-    <section className="relative min-h-screen flex items-center bg-gradient-to-b from-gray-50 to-white dark:from-gray-900 dark:to-gray-800 overflow-hidden">
+    <section className="relative min-h-screen flex items-center overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 md:px-8 pt-32 pb-20 w-full">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
-          <motion.div initial="hidden" animate="show" variants={fadeUp}>
+          <motion.div
+            initial="hidden"
+            animate="show"
+            variants={fadeUp}
+            className="glass-strong rounded-3xl p-8 md:p-10"
+          >
             <motion.p
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.2 }}
-              className="text-sm font-mono tracking-[0.3em] uppercase mb-6 text-blue-600 dark:text-blue-400"
+              className="text-sm font-mono tracking-[0.3em] uppercase mb-6 text-sky-600 dark:text-sky-400"
             >
               {siteConfig.tagline}
             </motion.p>
 
-            <h1 className="font-display text-5xl md:text-7xl font-bold leading-[1.05] mb-6 text-gray-900 dark:text-gray-100">
+            <h1 className="font-display text-5xl md:text-7xl font-bold leading-[1.05] mb-6 text-slate-900 dark:text-slate-100">
               <AnimatedText text="ready to build," delay={0.3} />
               <br />
               <AnimatedText text="learn, and grow." delay={0.5} />
@@ -35,7 +40,7 @@ export function Hero() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.7 }}
-              className="max-w-xl text-base md:text-lg mb-10 text-gray-600 dark:text-gray-400"
+              className="max-w-xl text-base md:text-lg mb-10 text-slate-600 dark:text-slate-300"
             >
               I'm passionate about software development and problem-solving, with hands-on experience across application development, backend systems, databases, and modern technologies. I'm looking for an opportunity where I can contribute to real-world projects while growing as a software engineer.
             </motion.p>
@@ -48,19 +53,11 @@ export function Hero() {
             >
               <MagneticButton
                 onClick={() => document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' })}
-                className="px-6 py-3 text-sm font-semibold rounded-full bg-blue-600 text-white hover:bg-blue-700 transition-colors"
+                className="px-6 py-3 text-sm font-semibold rounded-2xl bg-sky-500 text-white hover:bg-sky-600 transition-colors shadow-lg shadow-sky-500/25"
               >
                 View my work
                 <ArrowRight className="w-4 h-4 ml-2" />
               </MagneticButton>
-
-              {/* <MagneticButton
-                onClick={() => window.open(siteConfig.cv, '_blank')}
-                className="px-6 py-3 text-sm font-semibold rounded-full border border-gray-300 dark:border-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
-              >
-                Download CV
-                <Download className="w-4 h-4 ml-2" />
-              </MagneticButton> */}
             </motion.div>
 
             <motion.div
@@ -73,7 +70,7 @@ export function Hero() {
                 href={siteConfig.github}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 transition-colors"
+                className="text-slate-600 dark:text-slate-400 hover:text-sky-600 dark:hover:text-sky-300 transition-colors"
                 aria-label="GitHub"
               >
                 <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
@@ -84,7 +81,7 @@ export function Hero() {
                 href={siteConfig.linkedin}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 transition-colors"
+                className="text-slate-600 dark:text-slate-400 hover:text-sky-600 dark:hover:text-sky-300 transition-colors"
                 aria-label="LinkedIn"
               >
                 <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
@@ -100,10 +97,10 @@ export function Hero() {
               className="mt-8 flex items-center gap-2"
             >
               <span className="relative flex h-3 w-3">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-3 w-3 bg-green-500"></span>
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-3 w-3 bg-emerald-500"></span>
               </span>
-              <span className="text-sm text-gray-600 dark:text-gray-400">
+              <span className="text-sm text-slate-600 dark:text-slate-400">
                 {siteConfig.availability}
               </span>
             </motion.div>
